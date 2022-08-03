@@ -1,0 +1,96 @@
+.TH man 1 "August 3, 2022" "0.4.2" "HSH"
+.SH NAME
+.B hsh
+- a simple UNIX command interpreter.
+.br
+.SH SYNOPSIS
+.B hsh [command file [argument ...]]
+.br
+.SH DESCRIPTION
+.B hsh
+is a shell compatible command language interpreter that
+executes
+.br
+commands read from the standard input or from a file.
+.B hsh
+can be used
+.br
+in both interactive and non\-interactive modes.
+.PP
+For the interactive mode launch the executable file in your terminal
+\f[B]\&./hsh\f[].
+.br
+It will display the following prompt \f[B]$ \f[].
+Then it will read from the users
+.br
+input to execute the given commands.
+.PP
+For the non\-interactive mode redirect with a pipeline (\f[B]|\f[]) any
+precise
+.br
+output that would specify either the name or the path of the command to
+be
+.br
+interpreted by \f[B]\&./hsh\f[]
+.br
+.SH OPTIONS
+.B Ctrl+D
+: Exits the interactive mode.
+.br
+.B env
+: Displays users environmental variables.
+.br
+.B exit
+: Exits the program.
+.br
+.SH EXAMPLES
+.B Interactive mode
+.br
+$ ./hsh
+.br
+($) /bin/ls
+.br
+($) hsh main.c shell.c
+.br
+($) exit
+.br
+$
+.br
+.br
+.B Non-interactive mode
+.br
+$ echo "/bin/ls" | ./hsh
+.br
+hsh main.c shell.c test_ls_2
+.br
+$
+.br
+$ cat test_ls_2
+.br
+/bin/ls
+.br
+/bin/ls
+.br
+$
+.br
+$ cat test_ls_2 | ./hsh
+.br
+hsh main.c shell.c test_ls_2
+.br
+hsh main.c shell.c test_ls_2
+.br
+$
+.br
+.SH EXIT VALUES
+Errors that are detected by \f[B]hsh\f[], will cause the program to exit
+with a
+.br
+non\-zero exit status. Otherwise the \f[B]hsh\f[] will return the exit status
+.br
+of the last command executed.
+.br
+.SH BUGS
+No bugs reported.
+.br
+.SH AUTHORS
+Jaime Diaz & Raymond Colon.
