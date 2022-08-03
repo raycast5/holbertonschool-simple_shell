@@ -2,16 +2,18 @@
 #include <unistd.h>
 #include "cshell.h"
 
-void shellex(char **args, char **envp)
+void shellex(char **arg, char **envp)
 {
+	pid_t child_pid;
+	
+	if (_strcmp(arg[0], "exit") == 0)
+		exit(EXIT_SUCCESS);
 
-	/*const char *path = "bin/";*/
-
-	pid_t child_pid = fork();
+	child_pid = fork();
 
 	if (child_pid == 0)
 	{
-		execve(args[0], args, envp);
+		execve(arg[0], arg, envp);
 		perror("hsh");
 		exit(1);
     }

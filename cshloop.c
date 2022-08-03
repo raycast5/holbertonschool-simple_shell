@@ -6,8 +6,9 @@
 
 int main(int ac, char **av, char **envp)
 {
-	int icheck;
-	char *line;
+	int icheck, flag;
+	char *buffer = NULL;
+	size_t bufsize = 0;
 	char **purse;
 
 	(void)ac;
@@ -18,20 +19,19 @@ int main(int ac, char **av, char **envp)
 	{
 		if (icheck == 1)
 			printf("$ ");
-		line = readline();
-			if (!line)
-			{
-				free(line);
-				printf("\n");
-				exit(EXIT_SUCCESS);
-			}
-		purse = tokenize(line);
+		flag = getline(&buffer, &bufsize, stdin);
+		if (flag == EOF)
+		{
+			printf("\n");
+			exit(EXIT_SUCCESS);
+		}
+		purse = tokenize(buffer);
 
 		if (purse[0])
 			shellex(purse, envp);
-
+		
 		free(purse);
-		free(line);
+		free(buffer);
 		
 		if (icheck != 1)
 			break;
