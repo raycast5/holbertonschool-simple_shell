@@ -54,7 +54,7 @@ The shell functions:
 The shell does not have to:
 - use the `PATH`
 - implement built-ins
-- handle special characters : `"`, `'`, ```, `\`, `*`, `&`, `#`
+- handle special characters : ", ', `, \, *, &, #
 - be able to move the cursor
 - handle commands with arguments
 
