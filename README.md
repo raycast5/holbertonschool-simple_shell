@@ -17,7 +17,7 @@
 -  No more than 5 functions per file.
 -  All your header files should be include guarded.
 
-## Instalation
+## Installation
 Clone the repository
 ```bash
 git clone https://github.com/raycast5/holbertonschool-simple_shell
@@ -37,6 +37,45 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ## Example Interactive mode
 
 ## Example Non Interactive mode
+
+## Shell version history
+
+### Simple shell 0.1
+
+The shell functions:
+- Displays a prompt and waits for the user to type a command. A command line always ends with a new line.
+- The prompt is displayed again each time a command has been executed.
+- The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
+- The command lines are made only of one word. No arguments will be passed to programs.
+- If an executable cannot be found, print an error message and display the prompt again.
+- Handles errors.
+- Handles the “end of file” condition (Ctrl+D)
+
+The shell does not have to:
+- use the `PATH`
+- implement built-ins
+- handle special characters : `"`, `'`, ```, `\`, `*`, `&`, `#`
+- be able to move the cursor
+- handle commands with arguments
+
+### Simple shell 0.2
+
+- Handles command lines with arguments
+
+### Simple shell 0.3
+
+- Handles the `PATH`
+- `fork` must not be called if the command doesn't exist
+
+### Simple shell 0.4
+
+- The exit built-in is implemented, that exits the shell
+- Usage: `exit`
+- Does not have to handle any arguments to the built-in `exit`
+
+### Simple shell 1.0
+
+- The `env` built-in is implemented, that prints the current environment
 
 ### Authors
 
