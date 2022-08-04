@@ -15,7 +15,6 @@ int main(void)
 	char *buffer;
 	size_t bufsize;
 	char **purse = NULL;
-	int i;
 
 	icheck = isatty(STDIN_FILENO);
 	while (true)
@@ -37,12 +36,10 @@ int main(void)
 			{
 				icheck = 0;
 			}
-			for (i = 0; purse[i] != NULL; i++)
-			{
-				free(purse[i]);
-			}
-			free(purse);
 		}
+		free(buffer);
+		free(purse);
+
 		if (icheck != 1)
 			exit(0);
 	}
