@@ -17,4 +17,8 @@ int _strcmp(char *s1, char *s2);
 
 void _printenv(void);
 
+char *_strstr(char *haystack, char *needle);
+
+char *_getenv(char *arg);
+
 #endif
