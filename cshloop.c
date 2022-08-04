@@ -12,13 +12,16 @@
 int main(void)
 {
 	int icheck, flag;
-	char *buffer = NULL;
-	size_t bufsize = 0;
-	char **purse;
+	char *buffer;
+	size_t bufsize;
+	char **purse = NULL;
+	int i;
 
 	icheck = isatty(STDIN_FILENO);
 	while (true)
 	{
+		buffer = NULL;
+		bufsize = 0;
 		if (icheck == 1)
 			printf("$ ");
 		flag = getline(&buffer, &bufsize, stdin);
@@ -28,19 +31,20 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 		purse = tokenize(buffer);
-
 		if (purse[0])
 		{
 			if (shellex(purse) == 1)
 			{
 				icheck = 0;
 			}
+			for (i = 0; purse[i] != NULL; i++)
+			{
+				free(purse[i]);
+			}
+			free(purse);
 		}
-		free(purse);
-		free(buffer);
-
 		if (icheck != 1)
-			break;
+			exit(0);
 	}
 return (0);
 }

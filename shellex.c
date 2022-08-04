@@ -4,17 +4,19 @@
 
 /**
  * shellex - executes arguments
- * @arg: argument vector
+ * @purse: purse of tokens
  * Return: void
  */
 
-int shellex(char **arg)
+int shellex(char **purse)
 {
 	pid_t child_pid;
 
-	if (_strcmp(arg[0], "exit") == 0)
+	if (_strcmp(purse[0], "exit") == 0)
+	{
 		return (1);
-	else if (_strcmp(arg[0], "env") == 0)
+	}
+	else if (_strcmp(purse[0], "env") == 0)
 	{
 		_printenv();
 		return (1);
@@ -24,7 +26,7 @@ int shellex(char **arg)
 
 	if (child_pid == 0)
 	{
-		execve(arg[0], arg, environ);
+		execve(purse[0], purse, NULL);
 		perror("hsh");
 		exit(1);
 	}

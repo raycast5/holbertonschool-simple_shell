@@ -11,7 +11,7 @@ char *readline();
 
 char **tokenize(char *line);
 
-int shellex(char **arg);
+int shellex(char **purse);
 
 int _strcmp(char *s1, char *s2);
 
