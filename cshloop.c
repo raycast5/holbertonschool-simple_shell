@@ -6,9 +6,6 @@
 
 /**
  * main - main function of program
- * @ac: argument counter
- * @av: argument vector
- * @envp: environment
  * Return: 0 if success
  */
 
@@ -18,9 +15,6 @@ int main(void)
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char **purse;
-
-	/*(void)ac;
-	(void)av;*/
 
 	icheck = isatty(STDIN_FILENO);
 	while (true)

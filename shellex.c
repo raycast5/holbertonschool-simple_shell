@@ -5,19 +5,20 @@
 /**
  * shellex - executes arguments
  * @arg: argument vector
- * @envp: environment
  * Return: void
  */
 
 int shellex(char **arg)
 {
 	pid_t child_pid;
-	extern char **environ;
 
 	if (_strcmp(arg[0], "exit") == 0)
 		return (1);
-	/*else if (_strcmp(arg[0], "env") == 0)*/
-		
+	else if (_strcmp(arg[0], "env") == 0)
+	{
+		_printenv();
+		return (1);
+	}
 
 	child_pid = fork();
 
