@@ -12,15 +12,15 @@
  * Return: 0 if success
  */
 
-int main(int ac, char **av, char **envp)
+int main(void)
 {
 	int icheck, flag;
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char **purse;
 
-	(void)ac;
-	(void)av;
+	/*(void)ac;
+	(void)av;*/
 
 	icheck = isatty(STDIN_FILENO);
 	while (true)
@@ -37,7 +37,7 @@ int main(int ac, char **av, char **envp)
 
 		if (purse[0])
 		{
-			if (shellex(purse, envp) == 1)
+			if (shellex(purse) == 1)
 			{
 				icheck = 0;
 			}

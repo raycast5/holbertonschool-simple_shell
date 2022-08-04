@@ -9,7 +9,7 @@ char *readline();
 
 char **tokenize(char *line);
 
-int shellex(char **args, char **envp);
+int shellex(char **arg);
 
 int _strcmp(char *s1, char *s2);
 
