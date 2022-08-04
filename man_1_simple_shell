@@ -1,0 +1,62 @@
+.TH SHELL 3 "3 August 2022" "1.0" "shell man page"
+.SH NAME
+simple_shell - a simple version of the shell, the standard command language interpreter
+
+
+.SH SYNOPSIS
+hsh [options] [file]
+
+Compiled using: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o <name of executable>
+
+.SH DESCRIPTION
+
+.B hsh
+is a command language interpreter that executes commands read from the standard
+input or from a file.
+
+.B Overview
+
+hsh is a shell that reads input and generally executes commands.
+
+.B ./hsh
+This executable file runs the simple_shell
+
+.SH USAGE
+	In addition to searching the path, the following features are supported:
+.br
+	exit - Exit shell with a specified exit status
+.br
+	env - Print a list of the environment variables
+.br
+	setenv - Set a new environment variable
+.br
+	unsetenv - Unset an environment variable
+.br
+	cd - Change directories
+.br
+	Ctrl-D - End of file: exit shell
+.br
+	; - Command separator
+.br
+	# - Comment indicator
+.br
+.SH BUILTINS
+.br
+	exit - to exit hsh
+.br
+	cd - to change the directory
+.br
+	env - prints out the environment variables
+.br
+	setenv - initialize a new environment variable, or modify an existing one
+.br
+	unsetenv - remove an environment variable
+.br
+
+
+.SH BUGS
+No known bugs
+
+.SH AUTHOR
+Jaime Diaz (5103@holbertstudents.com) and Raymond Colon
+(5000@holbertonstudents.com)

@@ -4,6 +4,14 @@
 #include "cshell.h"
 #include <unistd.h>
 
+/**
+ * main - main function of program
+ * @ac: argument counter
+ * @av: argument vector
+ * @envp: environment
+ * Return: 0 if success
+ */
+
 int main(int ac, char **av, char **envp)
 {
 	int icheck, flag;
@@ -29,10 +37,10 @@ int main(int ac, char **av, char **envp)
 
 		if (purse[0])
 			shellex(purse, envp);
-		
+
 		free(purse);
 		free(buffer);
-		
+
 		if (icheck != 1)
 			break;
 	}
