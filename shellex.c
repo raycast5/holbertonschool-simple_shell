@@ -11,6 +11,7 @@
 int shellex(char **purse)
 {
 	pid_t child_pid;
+	char *temp = purse[0];
 
 	if (_strcmp(purse[0], "exit") == 0)
 	{
@@ -26,7 +27,7 @@ int shellex(char **purse)
 
 	if (child_pid == 0)
 	{
-		execve(purse[0], purse, NULL);
+		execve(temp, purse, environ);
 		perror("hsh");
 		exit(1);
 	}
