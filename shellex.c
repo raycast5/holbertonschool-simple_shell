@@ -34,10 +34,7 @@ int shellex(char **purse)
 	else if (child_pid > 0)
 	{
 		int status;
-
-		do {
-			waitpid(child_pid, &status, WUNTRACED);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		wait(&status);
 	}
 	else
 	{
