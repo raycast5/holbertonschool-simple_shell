@@ -9,12 +9,14 @@
  * Return: void
  */
 
-void shellex(char **arg, char **envp)
+int shellex(char **arg, char **envp)
 {
 	pid_t child_pid;
 
 	if (_strcmp(arg[0], "exit") == 0)
-		exit(EXIT_SUCCESS);
+	{
+		return (1);
+	}
 
 	child_pid = fork();
 
@@ -36,4 +38,5 @@ void shellex(char **arg, char **envp)
 	{
 		perror("hsh");
 	}
+return (0);
 }

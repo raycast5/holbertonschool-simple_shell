@@ -36,8 +36,12 @@ int main(int ac, char **av, char **envp)
 		purse = tokenize(buffer);
 
 		if (purse[0])
-			shellex(purse, envp);
-
+		{
+			if (shellex(purse, envp) == 1)
+			{
+				icheck = 0;
+			}
+		}
 		free(purse);
 		free(buffer);
 
