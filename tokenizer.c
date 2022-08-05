@@ -11,12 +11,12 @@
 char **tokenize(char *line)
 {
 	int i;
-	int bufsize = 32;
+	int bufsize = 400;
 	char **purse;
 
 	char *delim = " \t\r\n";
 	char *token;
-	
+
 	token = strtok(line, delim);
 
 	purse = malloc(sizeof(char) * bufsize);
@@ -30,11 +30,11 @@ char **tokenize(char *line)
 	{
 		purse[i] = token;
 
-		/*if (i >= bufsize)
+		if (i >= bufsize)
 		{
 			bufsize *= 2;
 			purse = realloc(purse, sizeof(char) * bufsize);
-		}*/
+		}
 		token = strtok(NULL, delim);
 	}
 	purse[i] = NULL;

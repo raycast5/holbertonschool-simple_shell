@@ -38,7 +38,9 @@ int main(void)
 			}
 		}
 		free(buffer);
+		buffer = NULL;
 		free(purse);
+		purse = NULL;
 
 		if (icheck != 1)
 			exit(0);

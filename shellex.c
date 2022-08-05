@@ -1,6 +1,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include "cshell.h"
+#include <stdio.h>
 
 /**
  * shellex - executes arguments
@@ -11,7 +12,7 @@
 int shellex(char **purse)
 {
 	pid_t child_pid;
-	char *temp = purse[0];
+	char *temp;
 
 	if (_strcmp(purse[0], "exit") == 0)
 	{
@@ -22,18 +23,21 @@ int shellex(char **purse)
 		_printenv();
 		return (1);
 	}
-
+	if (access(purse[0], F_OK) != 0)
+		temp = checkpath(purse[0]);
+	else
+		temp = purse[0];
 	child_pid = fork();
-
 	if (child_pid == 0)
 	{
 		execve(temp, purse, environ);
 		perror("hsh");
-		exit(1);
+		exit(0);
 	}
-	else if (child_pid > 0)
+	else if (child_pid != 0)
 	{
 		int status;
+
 		wait(&status);
 	}
 	else

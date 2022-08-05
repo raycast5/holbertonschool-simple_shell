@@ -21,4 +21,10 @@ char *_strstr(char *haystack, char *needle);
 
 char *_getenv(char *arg);
 
+char *str_concat(char *s1, char *s2);
+
+char *checkpath(char *command);
+
+char **splitpath(char *line);
+
 #endif
