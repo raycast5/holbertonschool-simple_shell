@@ -6,7 +6,7 @@
 
 ## Description
 
-- This is a simple version of the UNIX shell command interpreter. 
+- This is a simple version of the UNIX shell command interpreter. It emulates some basic functions from the **sh** shell.
 
 ## Project Requirements:
 
@@ -106,6 +106,11 @@ The shell does not have to:
 ### Simple shell 1.0
 
 - The `env` built-in is implemented, that prints the current environment
+
+### Built-ins
+
+- env
+- exit
 
 ### Authors
 
