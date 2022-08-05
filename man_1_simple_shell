@@ -12,7 +12,7 @@ Compiled using: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o <name of e
 
 .B hsh
 is a command language interpreter that executes commands read from the standard
-input or from a file.
+input or from a file. It emulates some functuality from the sh shell. Handles the environment, the PATH as well, and arguments. It has the env and exit built-ins. This code was all written in the C language.
 
 .B Overview
 
@@ -22,36 +22,61 @@ hsh is a shell that reads input and generally executes commands.
 This executable file runs the simple_shell
 
 .SH USAGE
-	In addition to searching the path, the following features are supported:
+In addition to searching the path, the following features are supported:
 .br
-	exit - Exit shell with a specified exit status
+exit - Exit shell with a specified exit status
 .br
-	env - Print a list of the environment variables
+env - Print a list of the environment variables
 .br
-	setenv - Set a new environment variable
+Ctrl-D - End of file: exit shell
+
+.SH EXAMPLES
+.B Interactive mode
 .br
-	unsetenv - Unset an environment variable
+$ ./hsh
 .br
-	cd - Change directories
+($) /bin/ls
 .br
-	Ctrl-D - End of file: exit shell
+($) hsh main.c shell.c
 .br
-	; - Command separator
+($) exit
 .br
-	# - Comment indicator
+$
 .br
+.br
+.B Non-interactive mode
+.br
+$ echo "/bin/ls" | ./hsh
+.br
+hsh main.c shell.c test_ls_2
+.br
+$
+.br
+$ cat test_ls_2
+.br
+/bin/ls
+.br
+/bin/ls
+.br
+$
+.br
+$ cat test_ls_2 | ./hsh
+.br
+hsh main.c shell.c test_ls_2
+.br
+hsh main.c shell.c test_ls_2
+.br
+$
+.br
+
+.SH RETURN VALUE
+hsh will return the contents of what was called on success, and
+will print an error if the command fails.
 .SH BUILTINS
 .br
-	exit - to exit hsh
+exit - to exit hsh
 .br
-	cd - to change the directory
-.br
-	env - prints out the environment variables
-.br
-	setenv - initialize a new environment variable, or modify an existing one
-.br
-	unsetenv - remove an environment variable
-.br
+env - prints out the environment variables
 
 
 .SH BUGS
