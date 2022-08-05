@@ -107,6 +107,10 @@ The shell does not have to:
 
 - The `env` built-in is implemented, that prints the current environment
 
+## Flowchart
+
+<img width="1133" alt="Untitled" src="https://user-images.githubusercontent.com/105442363/183133956-b30fa438-75dc-4404-9819-c20a8b522ab2.png">
+
 ### Built-ins
 
 - env
