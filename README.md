@@ -1,3 +1,5 @@
+https://upload.wikimedia.org/wikipedia/commons/1/1f/Tcsh_ejecut%C3%A1ndose_en_escritorio_Mac_OSX.png
+
 # Project: Simple Shell
 
 - simple_shell is a basic command interpreter that executes commands from the standard input or from a file.
@@ -31,13 +33,41 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ./hsh
 ```
 ### Files
-| File Name | Description |
-| ------ | ------ |
+|   **File**   |   **Description**   |
+| -------------- | --------------------- |
+| shellex.c | executes the child process |
+| cshell.h | header file |
+| tokenizer.c | converts strings into tokens |
+| checkpath.c | checks for the path |
+| path_utils.c | utilities to handle path |
+| _printenv.c | prints the enviroment |
+| cshloop.c | the main function |
+| utilities.c | functions used |
+| man_1_simple_shell | manual |
 
 ## Example Interactive mode
-
+```bash
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
 ## Example Non Interactive mode
-
+```bash
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$ 
+```
 ## Shell version history
 
 ### Simple shell 0.1
