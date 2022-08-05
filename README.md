@@ -1,4 +1,4 @@
-https://upload.wikimedia.org/wikipedia/commons/1/1f/Tcsh_ejecut%C3%A1ndose_en_escritorio_Mac_OSX.png
+![Tcsh_ejecutándose_en_escritorio_Mac_OSX](https://user-images.githubusercontent.com/105442363/183050516-b1598284-53a6-44ff-8356-5ffca55afb88.png)
 
 # Project: Simple Shell
 
